@@ -1,6 +1,7 @@
 # CoTL Knucklebones in Visual Basic
-## because i love that game <sup>(not the board game, the og game)</sup>
+> because i love that game <sup>(not the board game, the og game)</sup>
 
-
+\
 self explanatory
-> i just don't like to code
+also adding dice [crashed my designer](https://files.catbox.moe/eanawk.png) lmfao\
+very wip
