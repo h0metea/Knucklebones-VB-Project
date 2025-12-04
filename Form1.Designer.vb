@@ -26,7 +26,6 @@ Partial Class Form1
         lblTime = New Label()
         GameTimer = New Timer(components)
         btnDbgStart = New Button()
-        btnDbgStop = New Button()
         btnP1_1x1 = New Button()
         btnP1_1x2 = New Button()
         btnP1_1x3 = New Button()
@@ -39,6 +38,10 @@ Partial Class Form1
         btnTMPDICE = New Button()
         lblDiceTemp = New Label()
         pboxDice = New PictureBox()
+        pbarTime = New ProgressBar()
+        ContextMenuStrip1 = New ContextMenuStrip(components)
+        txtTimeInput = New TextBox()
+        Label1 = New Label()
         CType(pboxDice, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -46,38 +49,29 @@ Partial Class Form1
         ' 
         lblTime.AutoSize = True
         lblTime.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblTime.Location = New Point(688, 9)
+        lblTime.Location = New Point(-1, -1)
         lblTime.Name = "lblTime"
-        lblTime.Size = New Size(100, 30)
+        lblTime.Size = New Size(62, 30)
         lblTime.TabIndex = 0
-        lblTime.Text = "00:00.000"
+        lblTime.Text = "00:00"
         ' 
         ' GameTimer
         ' 
-        GameTimer.Interval = 25
+        GameTimer.Interval = 1000
         ' 
         ' btnDbgStart
         ' 
-        btnDbgStart.Location = New Point(526, 16)
+        btnDbgStart.Location = New Point(3, 82)
         btnDbgStart.Name = "btnDbgStart"
         btnDbgStart.Size = New Size(75, 23)
         btnDbgStart.TabIndex = 1
         btnDbgStart.Text = "Start"
         btnDbgStart.UseVisualStyleBackColor = True
         ' 
-        ' btnDbgStop
-        ' 
-        btnDbgStop.Location = New Point(607, 16)
-        btnDbgStop.Name = "btnDbgStop"
-        btnDbgStop.Size = New Size(75, 23)
-        btnDbgStop.TabIndex = 2
-        btnDbgStop.Text = "Stop / Skip"
-        btnDbgStop.UseVisualStyleBackColor = True
-        ' 
         ' btnP1_1x1
         ' 
         btnP1_1x1.FlatStyle = FlatStyle.Flat
-        btnP1_1x1.Location = New Point(60, 152)
+        btnP1_1x1.Location = New Point(14, 241)
         btnP1_1x1.Name = "btnP1_1x1"
         btnP1_1x1.Size = New Size(64, 63)
         btnP1_1x1.TabIndex = 3
@@ -86,7 +80,7 @@ Partial Class Form1
         ' btnP1_1x2
         ' 
         btnP1_1x2.FlatStyle = FlatStyle.Flat
-        btnP1_1x2.Location = New Point(130, 152)
+        btnP1_1x2.Location = New Point(84, 241)
         btnP1_1x2.Name = "btnP1_1x2"
         btnP1_1x2.Size = New Size(64, 63)
         btnP1_1x2.TabIndex = 3
@@ -95,7 +89,7 @@ Partial Class Form1
         ' btnP1_1x3
         ' 
         btnP1_1x3.FlatStyle = FlatStyle.Flat
-        btnP1_1x3.Location = New Point(200, 152)
+        btnP1_1x3.Location = New Point(154, 241)
         btnP1_1x3.Name = "btnP1_1x3"
         btnP1_1x3.Size = New Size(64, 63)
         btnP1_1x3.TabIndex = 3
@@ -104,7 +98,7 @@ Partial Class Form1
         ' btnP1_2x3
         ' 
         btnP1_2x3.FlatStyle = FlatStyle.Flat
-        btnP1_2x3.Location = New Point(200, 221)
+        btnP1_2x3.Location = New Point(154, 310)
         btnP1_2x3.Name = "btnP1_2x3"
         btnP1_2x3.Size = New Size(64, 63)
         btnP1_2x3.TabIndex = 3
@@ -113,7 +107,7 @@ Partial Class Form1
         ' btnP1_2x2
         ' 
         btnP1_2x2.FlatStyle = FlatStyle.Flat
-        btnP1_2x2.Location = New Point(130, 221)
+        btnP1_2x2.Location = New Point(84, 310)
         btnP1_2x2.Name = "btnP1_2x2"
         btnP1_2x2.Size = New Size(64, 63)
         btnP1_2x2.TabIndex = 3
@@ -122,7 +116,7 @@ Partial Class Form1
         ' btnP1_2x1
         ' 
         btnP1_2x1.FlatStyle = FlatStyle.Flat
-        btnP1_2x1.Location = New Point(60, 221)
+        btnP1_2x1.Location = New Point(14, 310)
         btnP1_2x1.Name = "btnP1_2x1"
         btnP1_2x1.Size = New Size(64, 63)
         btnP1_2x1.TabIndex = 3
@@ -131,7 +125,7 @@ Partial Class Form1
         ' btnP1_3x1
         ' 
         btnP1_3x1.FlatStyle = FlatStyle.Flat
-        btnP1_3x1.Location = New Point(60, 290)
+        btnP1_3x1.Location = New Point(14, 379)
         btnP1_3x1.Name = "btnP1_3x1"
         btnP1_3x1.Size = New Size(64, 63)
         btnP1_3x1.TabIndex = 3
@@ -140,7 +134,7 @@ Partial Class Form1
         ' btnP1_3x2
         ' 
         btnP1_3x2.FlatStyle = FlatStyle.Flat
-        btnP1_3x2.Location = New Point(130, 290)
+        btnP1_3x2.Location = New Point(84, 379)
         btnP1_3x2.Name = "btnP1_3x2"
         btnP1_3x2.Size = New Size(64, 63)
         btnP1_3x2.TabIndex = 3
@@ -149,7 +143,7 @@ Partial Class Form1
         ' btnP1_3x3
         ' 
         btnP1_3x3.FlatStyle = FlatStyle.Flat
-        btnP1_3x3.Location = New Point(200, 290)
+        btnP1_3x3.Location = New Point(154, 379)
         btnP1_3x3.Name = "btnP1_3x3"
         btnP1_3x3.Size = New Size(64, 63)
         btnP1_3x3.TabIndex = 3
@@ -157,7 +151,7 @@ Partial Class Form1
         ' 
         ' btnTMPDICE
         ' 
-        btnTMPDICE.Location = New Point(642, 183)
+        btnTMPDICE.Location = New Point(658, 62)
         btnTMPDICE.Name = "btnTMPDICE"
         btnTMPDICE.Size = New Size(75, 23)
         btnTMPDICE.TabIndex = 4
@@ -167,7 +161,7 @@ Partial Class Form1
         ' lblDiceTemp
         ' 
         lblDiceTemp.AutoSize = True
-        lblDiceTemp.Location = New Point(577, 187)
+        lblDiceTemp.Location = New Point(593, 66)
         lblDiceTemp.Name = "lblDiceTemp"
         lblDiceTemp.Size = New Size(41, 15)
         lblDiceTemp.TabIndex = 5
@@ -175,17 +169,48 @@ Partial Class Form1
         ' 
         ' pboxDice
         ' 
-        pboxDice.Location = New Point(450, 166)
+        pboxDice.Location = New Point(471, 44)
         pboxDice.Name = "pboxDice"
-        pboxDice.Size = New Size(77, 81)
-        pboxDice.TabIndex = 6
+        pboxDice.Size = New Size(67, 67)
+        pboxDice.TabIndex = 11
         pboxDice.TabStop = False
+        ' 
+        ' pbarTime
+        ' 
+        pbarTime.Location = New Point(5, 28)
+        pbarTime.Name = "pbarTime"
+        pbarTime.Size = New Size(225, 10)
+        pbarTime.TabIndex = 7
+        ' 
+        ' ContextMenuStrip1
+        ' 
+        ContextMenuStrip1.Name = "ContextMenuStrip1"
+        ContextMenuStrip1.Size = New Size(61, 4)
+        ' 
+        ' txtTimeInput
+        ' 
+        txtTimeInput.Location = New Point(5, 44)
+        txtTimeInput.Name = "txtTimeInput"
+        txtTimeInput.Size = New Size(38, 23)
+        txtTimeInput.TabIndex = 9
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(2, 67)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(193, 15)
+        Label1.TabIndex = 10
+        Label1.Text = "Insert desired time limit in minutes."
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(Label1)
+        Controls.Add(txtTimeInput)
+        Controls.Add(pbarTime)
         Controls.Add(pboxDice)
         Controls.Add(lblDiceTemp)
         Controls.Add(btnTMPDICE)
@@ -198,7 +223,6 @@ Partial Class Form1
         Controls.Add(btnP1_1x3)
         Controls.Add(btnP1_1x2)
         Controls.Add(btnP1_1x1)
-        Controls.Add(btnDbgStop)
         Controls.Add(btnDbgStart)
         Controls.Add(lblTime)
         Name = "Form1"
@@ -211,7 +235,6 @@ Partial Class Form1
     Friend WithEvents lblTime As Label
     Friend WithEvents GameTimer As Timer
     Friend WithEvents btnDbgStart As Button
-    Friend WithEvents btnDbgStop As Button
     Friend WithEvents btnP1_1x1 As Button
     Friend WithEvents btnP1_1x2 As Button
     Friend WithEvents btnP1_1x3 As Button
@@ -224,5 +247,9 @@ Partial Class Form1
     Friend WithEvents btnTMPDICE As Button
     Friend WithEvents lblDiceTemp As Label
     Friend WithEvents pboxDice As PictureBox
+    Friend WithEvents pbarTime As ProgressBar
+    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents txtTimeInput As TextBox
+    Friend WithEvents Label1 As Label
 
 End Class
