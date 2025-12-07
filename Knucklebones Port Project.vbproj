@@ -31,6 +31,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DiceFaces.resx</DependentUpon>
     </Compile>
+    <Compile Update="Logos.Designer.vb">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Logos.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +48,11 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DiceFaces.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Logos.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Logos.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 
