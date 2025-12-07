@@ -6,7 +6,8 @@ Imports Knucklebones_Port_Project.My.Resources
 ' If ... Is Nothing Then could be useful for checking open slots after first turn
 ' Val statement could be useful to retrieve values from the buttons fr
 ' Ctrl K + Ctrl U to uncomment ez
-Public Class Form1
+
+Public Class TheGame
     Dim Dice As Integer
     Dim DiceImg As Integer
     Dim tspn As New TimeSpan()
@@ -15,50 +16,31 @@ Public Class Form1
         Dice = Int((6 - 1 + 1) * Rnd() + 1)
     End Function
 
-    Public Sub BoardCalc()
-        Dim Col1x1 As Integer
-        Dim Col1x2 As Integer
-        Dim Col1x3 As Integer
-        Dim Column1Sum As Integer
-        Dim Product As Integer = 0
-        Dim Remainder As Integer = 0
-        ' since wrapping in CInt() crashes for some reason :DDDD
+    Public Sub Board1Col1Calc()
 
-        Col1x1 = btnP1_1x1.Text
-        Col1x2 = btnP1_1x2.Text
-        Col1x3 = btnP1_1x3.Text
-
-        ' YandereDev ass code LMFAOOOOOOOOOO
-        If Col1x1 = Col1x2 Then
-            Product = Col1x1 * Col1x2
-            Remainder = Col1x3 + Product
-        ElseIf Col1x2 = Col1x3 Then
-            Product = Col1x2 * Col1x3
-            Remainder = Col1x1 + Product
-        ElseIf Col1x1 = Col1x3 Then
-            Product = Col1x1 * Col1x3
-            Remainder = Col1x2 + Product
-        End If
-
-        If Product = 0 Then
-            Column1Sum = Col1x1 + Col1x2 + Col1x3
-        ElseIf Product > 1 Then
-            Column1Sum = Remainder
-        End If
-
-        lblDbgScore.Text = Column1Sum
 
         ' array solution if needed
-        'Dim Column1Sum() As Integer = {Col1x1, Col1x2, Col1x3}
+        Dim TestArray(2) As Integer
+        TestArray(0) = btnP1_3.Text
+        TestArray(1) = btnP1_2.Text
+        TestArray(2) = btnP1_1.Text
 
+        For i As Integer = 0 To 2
+
+        Next
+
+
+        'Col1 = btnP1_1.Text
+        'Col2 = btnP1_2.Text
+        'Col3 = btnP1_3.Text
 
     End Sub
 
     Private Sub ButtonClicked(ByVal sender As System.Object,
-                               ByVal e As System.EventArgs) Handles btnP1_1x1.Click,
-                               btnP1_1x2.Click, btnP1_1x3.Click, btnP1_1x3.Click, btnP1_2x1.Click,
-                               btnP1_2x2.Click, btnP1_2x3.Click, btnP1_3x1.Click, btnP1_3x2.Click,
-                               btnP1_3x3.Click
+                               ByVal e As System.EventArgs) Handles btnP1_1.Click,
+                               btnP1_2.Click, btnP1_3.Click, btnP1_3.Click, btnP1_4.Click,
+                               btnP1_5.Click, btnP1_6.Click, btnP1_7.Click, btnP1_8.Click,
+                               btnP1_9.Click
 
         Roll()
         sender.Text = Dice
@@ -66,6 +48,14 @@ Public Class Form1
 
     End Sub
 
+    Private Sub ResetBoardDisabler()
+        btnP1_1.Enabled = False
+        btnP1_2.Enabled = False
+        btnP1_4.Enabled = False
+        btnP1_5.Enabled = False
+        btnP1_7.Enabled = False
+        btnP1_8.Enabled = False
+    End Sub
 
     ' future reset thingy when game ends, resets all buttons
     Private Sub Reset()
@@ -75,6 +65,7 @@ Public Class Form1
                 ctl.Enabled = True
             End If
         Next ctl
+        ResetBoardDisabler()
         btnDbgStart.Text = "Start / Restart"
     End Sub
 
@@ -106,7 +97,8 @@ Public Class Form1
     Private Sub btnRollTheDice_Click(sender As Object, e As EventArgs) Handles btnRollTheDice.Click
         ' highkey disable this shit until the next players turn
         Roll()
-        lblInfoDice.Text = Roll()
+        lblDiceNumber.Text = Dice
+        pboxDice.Image = My.Resources.DiceFaces.
 
     End Sub
 

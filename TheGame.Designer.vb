@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class TheGame
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -26,15 +26,15 @@ Partial Class Form1
         lblTime = New Label()
         GameTimer = New Timer(components)
         btnDbgStart = New Button()
-        btnP1_1x1 = New Button()
-        btnP1_1x2 = New Button()
-        btnP1_1x3 = New Button()
-        btnP1_2x3 = New Button()
-        btnP1_2x2 = New Button()
-        btnP1_2x1 = New Button()
-        btnP1_3x1 = New Button()
-        btnP1_3x2 = New Button()
-        btnP1_3x3 = New Button()
+        btnP1_1 = New Button()
+        btnP1_2 = New Button()
+        btnP1_3 = New Button()
+        btnP1_6 = New Button()
+        btnP1_5 = New Button()
+        btnP1_4 = New Button()
+        btnP1_7 = New Button()
+        btnP1_8 = New Button()
+        btnP1_9 = New Button()
         btnRollTheDice = New Button()
         lblInfoDice = New Label()
         pboxDice = New PictureBox()
@@ -73,86 +73,86 @@ Partial Class Form1
         btnDbgStart.Text = "Start"
         btnDbgStart.UseVisualStyleBackColor = True
         ' 
-        ' btnP1_1x1
+        ' btnP1_1
         ' 
-        btnP1_1x1.FlatStyle = FlatStyle.Flat
-        btnP1_1x1.Location = New Point(14, 241)
-        btnP1_1x1.Name = "btnP1_1x1"
-        btnP1_1x1.Size = New Size(64, 63)
-        btnP1_1x1.TabIndex = 3
-        btnP1_1x1.UseVisualStyleBackColor = True
+        btnP1_1.FlatStyle = FlatStyle.Flat
+        btnP1_1.Location = New Point(14, 241)
+        btnP1_1.Name = "btnP1_1"
+        btnP1_1.Size = New Size(64, 63)
+        btnP1_1.TabIndex = 3
+        btnP1_1.UseVisualStyleBackColor = True
         ' 
-        ' btnP1_1x2
+        ' btnP1_2
         ' 
-        btnP1_1x2.FlatStyle = FlatStyle.Flat
-        btnP1_1x2.Location = New Point(84, 241)
-        btnP1_1x2.Name = "btnP1_1x2"
-        btnP1_1x2.Size = New Size(64, 63)
-        btnP1_1x2.TabIndex = 3
-        btnP1_1x2.UseVisualStyleBackColor = True
+        btnP1_2.FlatStyle = FlatStyle.Flat
+        btnP1_2.Location = New Point(84, 241)
+        btnP1_2.Name = "btnP1_2"
+        btnP1_2.Size = New Size(64, 63)
+        btnP1_2.TabIndex = 3
+        btnP1_2.UseVisualStyleBackColor = True
         ' 
-        ' btnP1_1x3
+        ' btnP1_3
         ' 
-        btnP1_1x3.FlatStyle = FlatStyle.Flat
-        btnP1_1x3.Location = New Point(154, 241)
-        btnP1_1x3.Name = "btnP1_1x3"
-        btnP1_1x3.Size = New Size(64, 63)
-        btnP1_1x3.TabIndex = 3
-        btnP1_1x3.UseVisualStyleBackColor = True
+        btnP1_3.FlatStyle = FlatStyle.Flat
+        btnP1_3.Location = New Point(154, 241)
+        btnP1_3.Name = "btnP1_3"
+        btnP1_3.Size = New Size(64, 63)
+        btnP1_3.TabIndex = 3
+        btnP1_3.UseVisualStyleBackColor = True
         ' 
-        ' btnP1_2x3
+        ' btnP1_6
         ' 
-        btnP1_2x3.FlatStyle = FlatStyle.Flat
-        btnP1_2x3.Location = New Point(154, 310)
-        btnP1_2x3.Name = "btnP1_2x3"
-        btnP1_2x3.Size = New Size(64, 63)
-        btnP1_2x3.TabIndex = 3
-        btnP1_2x3.UseVisualStyleBackColor = True
+        btnP1_6.FlatStyle = FlatStyle.Flat
+        btnP1_6.Location = New Point(154, 310)
+        btnP1_6.Name = "btnP1_6"
+        btnP1_6.Size = New Size(64, 63)
+        btnP1_6.TabIndex = 3
+        btnP1_6.UseVisualStyleBackColor = True
         ' 
-        ' btnP1_2x2
+        ' btnP1_5
         ' 
-        btnP1_2x2.FlatStyle = FlatStyle.Flat
-        btnP1_2x2.Location = New Point(84, 310)
-        btnP1_2x2.Name = "btnP1_2x2"
-        btnP1_2x2.Size = New Size(64, 63)
-        btnP1_2x2.TabIndex = 3
-        btnP1_2x2.UseVisualStyleBackColor = True
+        btnP1_5.FlatStyle = FlatStyle.Flat
+        btnP1_5.Location = New Point(84, 310)
+        btnP1_5.Name = "btnP1_5"
+        btnP1_5.Size = New Size(64, 63)
+        btnP1_5.TabIndex = 3
+        btnP1_5.UseVisualStyleBackColor = True
         ' 
-        ' btnP1_2x1
+        ' btnP1_4
         ' 
-        btnP1_2x1.FlatStyle = FlatStyle.Flat
-        btnP1_2x1.Location = New Point(14, 310)
-        btnP1_2x1.Name = "btnP1_2x1"
-        btnP1_2x1.Size = New Size(64, 63)
-        btnP1_2x1.TabIndex = 3
-        btnP1_2x1.UseVisualStyleBackColor = True
+        btnP1_4.FlatStyle = FlatStyle.Flat
+        btnP1_4.Location = New Point(14, 310)
+        btnP1_4.Name = "btnP1_4"
+        btnP1_4.Size = New Size(64, 63)
+        btnP1_4.TabIndex = 3
+        btnP1_4.UseVisualStyleBackColor = True
         ' 
-        ' btnP1_3x1
+        ' btnP1_7
         ' 
-        btnP1_3x1.FlatStyle = FlatStyle.Flat
-        btnP1_3x1.Location = New Point(14, 379)
-        btnP1_3x1.Name = "btnP1_3x1"
-        btnP1_3x1.Size = New Size(64, 63)
-        btnP1_3x1.TabIndex = 3
-        btnP1_3x1.UseVisualStyleBackColor = True
+        btnP1_7.FlatStyle = FlatStyle.Flat
+        btnP1_7.Location = New Point(14, 379)
+        btnP1_7.Name = "btnP1_7"
+        btnP1_7.Size = New Size(64, 63)
+        btnP1_7.TabIndex = 3
+        btnP1_7.UseVisualStyleBackColor = True
         ' 
-        ' btnP1_3x2
+        ' btnP1_8
         ' 
-        btnP1_3x2.FlatStyle = FlatStyle.Flat
-        btnP1_3x2.Location = New Point(84, 379)
-        btnP1_3x2.Name = "btnP1_3x2"
-        btnP1_3x2.Size = New Size(64, 63)
-        btnP1_3x2.TabIndex = 3
-        btnP1_3x2.UseVisualStyleBackColor = True
+        btnP1_8.FlatStyle = FlatStyle.Flat
+        btnP1_8.Location = New Point(84, 379)
+        btnP1_8.Name = "btnP1_8"
+        btnP1_8.Size = New Size(64, 63)
+        btnP1_8.TabIndex = 3
+        btnP1_8.UseVisualStyleBackColor = True
         ' 
-        ' btnP1_3x3
+        ' btnP1_9
         ' 
-        btnP1_3x3.FlatStyle = FlatStyle.Flat
-        btnP1_3x3.Location = New Point(154, 379)
-        btnP1_3x3.Name = "btnP1_3x3"
-        btnP1_3x3.Size = New Size(64, 63)
-        btnP1_3x3.TabIndex = 3
-        btnP1_3x3.UseVisualStyleBackColor = True
+        btnP1_9.FlatStyle = FlatStyle.Flat
+        btnP1_9.Location = New Point(154, 379)
+        btnP1_9.Name = "btnP1_9"
+        btnP1_9.Size = New Size(64, 63)
+        btnP1_9.TabIndex = 3
+        btnP1_9.UseVisualStyleBackColor = True
         ' 
         ' btnRollTheDice
         ' 
@@ -212,7 +212,7 @@ Partial Class Form1
         ' 
         ' dbgTestButton
         ' 
-        dbgTestButton.Location = New Point(71, 113)
+        dbgTestButton.Location = New Point(593, 297)
         dbgTestButton.Name = "dbgTestButton"
         dbgTestButton.Size = New Size(113, 32)
         dbgTestButton.TabIndex = 12
@@ -222,7 +222,7 @@ Partial Class Form1
         ' lblDbgScore
         ' 
         lblDbgScore.AutoSize = True
-        lblDbgScore.Location = New Point(159, 223)
+        lblDbgScore.Location = New Point(161, 223)
         lblDbgScore.Name = "lblDbgScore"
         lblDbgScore.Size = New Size(59, 15)
         lblDbgScore.TabIndex = 13
@@ -259,7 +259,7 @@ Partial Class Form1
         lblTimerTxt.TabIndex = 16
         lblTimerTxt.Text = "Timer:"
         ' 
-        ' Form1
+        ' TheGame
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
@@ -275,18 +275,18 @@ Partial Class Form1
         Controls.Add(pboxDice)
         Controls.Add(lblInfoDice)
         Controls.Add(btnRollTheDice)
-        Controls.Add(btnP1_3x3)
-        Controls.Add(btnP1_3x2)
-        Controls.Add(btnP1_3x1)
-        Controls.Add(btnP1_2x1)
-        Controls.Add(btnP1_2x2)
-        Controls.Add(btnP1_2x3)
-        Controls.Add(btnP1_1x3)
-        Controls.Add(btnP1_1x2)
-        Controls.Add(btnP1_1x1)
+        Controls.Add(btnP1_9)
+        Controls.Add(btnP1_8)
+        Controls.Add(btnP1_7)
+        Controls.Add(btnP1_4)
+        Controls.Add(btnP1_5)
+        Controls.Add(btnP1_6)
+        Controls.Add(btnP1_3)
+        Controls.Add(btnP1_2)
+        Controls.Add(btnP1_1)
         Controls.Add(btnDbgStart)
         Controls.Add(lblTime)
-        Name = "Form1"
+        Name = "TheGame"
         Text = "Form1"
         CType(pboxDice, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
@@ -296,15 +296,15 @@ Partial Class Form1
     Friend WithEvents lblTime As Label
     Friend WithEvents GameTimer As Timer
     Friend WithEvents btnDbgStart As Button
-    Friend WithEvents btnP1_1x1 As Button
-    Friend WithEvents btnP1_1x2 As Button
-    Friend WithEvents btnP1_1x3 As Button
-    Friend WithEvents btnP1_2x3 As Button
-    Friend WithEvents btnP1_2x2 As Button
-    Friend WithEvents btnP1_2x1 As Button
-    Friend WithEvents btnP1_3x1 As Button
-    Friend WithEvents btnP1_3x2 As Button
-    Friend WithEvents btnP1_3x3 As Button
+    Friend WithEvents btnP1_1 As Button
+    Friend WithEvents btnP1_2 As Button
+    Friend WithEvents btnP1_3 As Button
+    Friend WithEvents btnP1_6 As Button
+    Friend WithEvents btnP1_5 As Button
+    Friend WithEvents btnP1_4 As Button
+    Friend WithEvents btnP1_7 As Button
+    Friend WithEvents btnP1_8 As Button
+    Friend WithEvents btnP1_9 As Button
     Friend WithEvents btnRollTheDice As Button
     Friend WithEvents lblInfoDice As Label
     Friend WithEvents pboxDice As PictureBox
