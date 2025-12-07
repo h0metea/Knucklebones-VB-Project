@@ -35,23 +35,28 @@ Partial Class Form1
         btnP1_3x1 = New Button()
         btnP1_3x2 = New Button()
         btnP1_3x3 = New Button()
-        btnTMPDICE = New Button()
-        lblDiceTemp = New Label()
+        btnRollTheDice = New Button()
+        lblInfoDice = New Label()
         pboxDice = New PictureBox()
         pbarTime = New ProgressBar()
         ContextMenuStrip1 = New ContextMenuStrip(components)
         txtTimeInput = New TextBox()
         Label1 = New Label()
+        dbgTestButton = New Button()
+        lblDbgScore = New Label()
+        Label2 = New Label()
+        lblDiceNumber = New Label()
+        lblTimerTxt = New Label()
         CType(pboxDice, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' lblTime
         ' 
         lblTime.AutoSize = True
-        lblTime.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblTime.Location = New Point(-1, -1)
+        lblTime.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblTime.Location = New Point(380, 15)
         lblTime.Name = "lblTime"
-        lblTime.Size = New Size(62, 30)
+        lblTime.Size = New Size(71, 32)
         lblTime.TabIndex = 0
         lblTime.Text = "00:00"
         ' 
@@ -61,7 +66,7 @@ Partial Class Form1
         ' 
         ' btnDbgStart
         ' 
-        btnDbgStart.Location = New Point(3, 82)
+        btnDbgStart.Location = New Point(3, 73)
         btnDbgStart.Name = "btnDbgStart"
         btnDbgStart.Size = New Size(75, 23)
         btnDbgStart.TabIndex = 1
@@ -149,27 +154,29 @@ Partial Class Form1
         btnP1_3x3.TabIndex = 3
         btnP1_3x3.UseVisualStyleBackColor = True
         ' 
-        ' btnTMPDICE
+        ' btnRollTheDice
         ' 
-        btnTMPDICE.Location = New Point(658, 62)
-        btnTMPDICE.Name = "btnTMPDICE"
-        btnTMPDICE.Size = New Size(75, 23)
-        btnTMPDICE.TabIndex = 4
-        btnTMPDICE.Text = "dice test"
-        btnTMPDICE.UseVisualStyleBackColor = True
+        btnRollTheDice.BackColor = SystemColors.Control
+        btnRollTheDice.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        btnRollTheDice.Location = New Point(356, 200)
+        btnRollTheDice.Name = "btnRollTheDice"
+        btnRollTheDice.Size = New Size(124, 50)
+        btnRollTheDice.TabIndex = 4
+        btnRollTheDice.Text = "Roll!"
+        btnRollTheDice.UseVisualStyleBackColor = False
         ' 
-        ' lblDiceTemp
+        ' lblInfoDice
         ' 
-        lblDiceTemp.AutoSize = True
-        lblDiceTemp.Location = New Point(593, 66)
-        lblDiceTemp.Name = "lblDiceTemp"
-        lblDiceTemp.Size = New Size(41, 15)
-        lblDiceTemp.TabIndex = 5
-        lblDiceTemp.Text = "Label1"
+        lblInfoDice.AutoSize = True
+        lblInfoDice.Location = New Point(378, 72)
+        lblInfoDice.Name = "lblInfoDice"
+        lblInfoDice.Size = New Size(78, 15)
+        lblInfoDice.TabIndex = 5
+        lblInfoDice.Text = "You rolled a..."
         ' 
         ' pboxDice
         ' 
-        pboxDice.Location = New Point(471, 44)
+        pboxDice.Location = New Point(384, 127)
         pboxDice.Name = "pboxDice"
         pboxDice.Size = New Size(67, 67)
         pboxDice.TabIndex = 11
@@ -177,7 +184,7 @@ Partial Class Form1
         ' 
         ' pbarTime
         ' 
-        pbarTime.Location = New Point(5, 28)
+        pbarTime.Location = New Point(305, 50)
         pbarTime.Name = "pbarTime"
         pbarTime.Size = New Size(225, 10)
         pbarTime.TabIndex = 7
@@ -197,23 +204,77 @@ Partial Class Form1
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(2, 67)
+        Label1.Location = New Point(84, 77)
         Label1.Name = "Label1"
         Label1.Size = New Size(193, 15)
         Label1.TabIndex = 10
         Label1.Text = "Insert desired time limit in minutes."
+        ' 
+        ' dbgTestButton
+        ' 
+        dbgTestButton.Location = New Point(71, 113)
+        dbgTestButton.Name = "dbgTestButton"
+        dbgTestButton.Size = New Size(113, 32)
+        dbgTestButton.TabIndex = 12
+        dbgTestButton.Text = "Test Board Calc"
+        dbgTestButton.UseVisualStyleBackColor = True
+        ' 
+        ' lblDbgScore
+        ' 
+        lblDbgScore.AutoSize = True
+        lblDbgScore.Location = New Point(159, 223)
+        lblDbgScore.Name = "lblDbgScore"
+        lblDbgScore.Size = New Size(59, 15)
+        lblDbgScore.TabIndex = 13
+        lblDbgScore.Text = "Score Test"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.ForeColor = Color.Red
+        Label2.Location = New Point(12, 218)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(64, 21)
+        Label2.TabIndex = 14
+        Label2.Text = "Player 1"
+        Label2.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' lblDiceNumber
+        ' 
+        lblDiceNumber.AutoSize = True
+        lblDiceNumber.Font = New Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblDiceNumber.Location = New Point(378, 87)
+        lblDiceNumber.Name = "lblDiceNumber"
+        lblDiceNumber.Size = New Size(79, 37)
+        lblDiceNumber.TabIndex = 15
+        lblDiceNumber.Text = "Num"
+        ' 
+        ' lblTimerTxt
+        ' 
+        lblTimerTxt.AutoSize = True
+        lblTimerTxt.Location = New Point(394, 5)
+        lblTimerTxt.Name = "lblTimerTxt"
+        lblTimerTxt.Size = New Size(40, 15)
+        lblTimerTxt.TabIndex = 16
+        lblTimerTxt.Text = "Timer:"
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(lblTimerTxt)
+        Controls.Add(lblDiceNumber)
+        Controls.Add(Label2)
+        Controls.Add(lblDbgScore)
+        Controls.Add(dbgTestButton)
         Controls.Add(Label1)
         Controls.Add(txtTimeInput)
         Controls.Add(pbarTime)
         Controls.Add(pboxDice)
-        Controls.Add(lblDiceTemp)
-        Controls.Add(btnTMPDICE)
+        Controls.Add(lblInfoDice)
+        Controls.Add(btnRollTheDice)
         Controls.Add(btnP1_3x3)
         Controls.Add(btnP1_3x2)
         Controls.Add(btnP1_3x1)
@@ -244,12 +305,17 @@ Partial Class Form1
     Friend WithEvents btnP1_3x1 As Button
     Friend WithEvents btnP1_3x2 As Button
     Friend WithEvents btnP1_3x3 As Button
-    Friend WithEvents btnTMPDICE As Button
-    Friend WithEvents lblDiceTemp As Label
+    Friend WithEvents btnRollTheDice As Button
+    Friend WithEvents lblInfoDice As Label
     Friend WithEvents pboxDice As PictureBox
     Friend WithEvents pbarTime As ProgressBar
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents txtTimeInput As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents dbgTestButton As Button
+    Friend WithEvents lblDbgScore As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lblDiceNumber As Label
+    Friend WithEvents lblTimerTxt As Label
 
 End Class

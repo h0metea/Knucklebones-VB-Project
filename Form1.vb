@@ -1,8 +1,11 @@
-﻿Imports Knucklebones_Port_Project.My.Resources
+﻿Imports System.Globalization
+Imports System.Runtime.CompilerServices
+Imports Knucklebones_Port_Project.My.Resources
 
 ' Notes: btw this whole thing is gonna either be 1. really inefficient or 2. be really shit (interchangeable)
 ' If ... Is Nothing Then could be useful for checking open slots after first turn
 ' Val statement could be useful to retrieve values from the buttons fr
+' Ctrl K + Ctrl U to uncomment ez
 Public Class Form1
     Dim Dice As Integer
     Dim DiceImg As Integer
@@ -12,7 +15,42 @@ Public Class Form1
         Dice = Int((6 - 1 + 1) * Rnd() + 1)
     End Function
 
-    Private Sub GrabNumbers()
+    Public Sub BoardCalc()
+        Dim Col1x1 As Integer
+        Dim Col1x2 As Integer
+        Dim Col1x3 As Integer
+        Dim Column1Sum As Integer
+        Dim Product As Integer = 0
+        Dim Remainder As Integer = 0
+        ' since wrapping in CInt() crashes for some reason :DDDD
+
+        Col1x1 = btnP1_1x1.Text
+        Col1x2 = btnP1_1x2.Text
+        Col1x3 = btnP1_1x3.Text
+
+        ' YandereDev ass code LMFAOOOOOOOOOO
+        If Col1x1 = Col1x2 Then
+            Product = Col1x1 * Col1x2
+            Remainder = Col1x3 + Product
+        ElseIf Col1x2 = Col1x3 Then
+            Product = Col1x2 * Col1x3
+            Remainder = Col1x1 + Product
+        ElseIf Col1x1 = Col1x3 Then
+            Product = Col1x1 * Col1x3
+            Remainder = Col1x2 + Product
+        End If
+
+        If Product = 0 Then
+            Column1Sum = Col1x1 + Col1x2 + Col1x3
+        ElseIf Product > 1 Then
+            Column1Sum = Remainder
+        End If
+
+        lblDbgScore.Text = Column1Sum
+
+        ' array solution if needed
+        'Dim Column1Sum() As Integer = {Col1x1, Col1x2, Col1x3}
+
 
     End Sub
 
@@ -65,9 +103,10 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub btnTMPDICE_Click(sender As Object, e As EventArgs) Handles btnTMPDICE.Click
+    Private Sub btnRollTheDice_Click(sender As Object, e As EventArgs) Handles btnRollTheDice.Click
+        ' highkey disable this shit until the next players turn
         Roll()
-        lblDiceTemp.Text = Roll
+        lblInfoDice.Text = Roll()
 
     End Sub
 
@@ -83,4 +122,10 @@ Public Class Form1
     Private Sub btnDbgStop_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub dbgTestButton_Click(sender As Object, e As EventArgs) Handles dbgTestButton.Click
+        BoardCalc()
+    End Sub
+
+
 End Class
