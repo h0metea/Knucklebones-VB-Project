@@ -26,7 +26,6 @@ Partial Class TheGame
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TheGame))
         lblTime = New Label()
         GameTimer = New Timer(components)
-        btnDbgStart = New Button()
         btnP1_1 = New Button()
         btnP1_2 = New Button()
         btnP1_3 = New Button()
@@ -41,8 +40,6 @@ Partial Class TheGame
         pboxDice = New PictureBox()
         pbarTime = New ProgressBar()
         ContextMenuStrip1 = New ContextMenuStrip(components)
-        txtTimeInput = New TextBox()
-        Label1 = New Label()
         lblDbgScore = New Label()
         lblPlayer1 = New Label()
         lblDiceNumber = New Label()
@@ -75,15 +72,6 @@ Partial Class TheGame
         ' GameTimer
         ' 
         GameTimer.Interval = 1000
-        ' 
-        ' btnDbgStart
-        ' 
-        btnDbgStart.Location = New Point(3, 73)
-        btnDbgStart.Name = "btnDbgStart"
-        btnDbgStart.Size = New Size(75, 23)
-        btnDbgStart.TabIndex = 1
-        btnDbgStart.Text = "Start"
-        btnDbgStart.UseVisualStyleBackColor = True
         ' 
         ' btnP1_1
         ' 
@@ -221,22 +209,6 @@ Partial Class TheGame
         ' 
         ContextMenuStrip1.Name = "ContextMenuStrip1"
         ContextMenuStrip1.Size = New Size(61, 4)
-        ' 
-        ' txtTimeInput
-        ' 
-        txtTimeInput.Location = New Point(5, 44)
-        txtTimeInput.Name = "txtTimeInput"
-        txtTimeInput.Size = New Size(38, 23)
-        txtTimeInput.TabIndex = 9
-        ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Location = New Point(84, 77)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(193, 15)
-        Label1.TabIndex = 10
-        Label1.Text = "Insert desired time limit in minutes."
         ' 
         ' lblDbgScore
         ' 
@@ -410,8 +382,6 @@ Partial Class TheGame
         Controls.Add(lblPlayer2)
         Controls.Add(lblPlayer1)
         Controls.Add(lblDbgScore)
-        Controls.Add(Label1)
-        Controls.Add(txtTimeInput)
         Controls.Add(pbarTime)
         Controls.Add(pboxDice)
         Controls.Add(lblInfoDice)
@@ -434,7 +404,6 @@ Partial Class TheGame
         Controls.Add(btnP2_1)
         Controls.Add(btnP1_2)
         Controls.Add(btnP1_1)
-        Controls.Add(btnDbgStart)
         Controls.Add(lblTime)
         Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximumSize = New Size(816, 489)
@@ -448,7 +417,6 @@ Partial Class TheGame
 
     Friend WithEvents lblTime As Label
     Friend WithEvents GameTimer As Timer
-    Friend WithEvents btnDbgStart As Button
     Friend WithEvents btnP1_1 As Button
     Friend WithEvents btnP1_2 As Button
     Friend WithEvents btnP1_3 As Button
@@ -463,8 +431,6 @@ Partial Class TheGame
     Friend WithEvents pboxDice As PictureBox
     Friend WithEvents pbarTime As ProgressBar
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
-    Friend WithEvents txtTimeInput As TextBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents lblDbgScore As Label
     Friend WithEvents lblPlayer1 As Label
     Friend WithEvents lblDiceNumber As Label

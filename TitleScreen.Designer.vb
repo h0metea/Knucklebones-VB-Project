@@ -38,6 +38,8 @@ Partial Class TitleScreen
         ttPlrNames = New ToolTip(components)
         lblP1Info = New Label()
         lblP2Info = New Label()
+        txtTimeInput = New TextBox()
+        lblTimerInputInfo = New Label()
         CType(pboxCOTL, ComponentModel.ISupportInitialize).BeginInit()
         CType(pboxKB, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -60,7 +62,7 @@ Partial Class TitleScreen
         btnExit.FlatStyle = FlatStyle.Flat
         btnExit.Font = New Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnExit.ForeColor = Color.Maroon
-        btnExit.Location = New Point(315, 394)
+        btnExit.Location = New Point(403, 394)
         btnExit.Name = "btnExit"
         btnExit.Size = New Size(168, 50)
         btnExit.TabIndex = 0
@@ -183,12 +185,35 @@ Partial Class TitleScreen
         lblP2Info.TabIndex = 7
         lblP2Info.Text = "Player 2's Name"
         ' 
+        ' txtTimeInput
+        ' 
+        txtTimeInput.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
+        txtTimeInput.BorderStyle = BorderStyle.FixedSingle
+        txtTimeInput.ForeColor = SystemColors.Menu
+        txtTimeInput.Location = New Point(364, 408)
+        txtTimeInput.Name = "txtTimeInput"
+        txtTimeInput.Size = New Size(33, 23)
+        txtTimeInput.TabIndex = 8
+        ' 
+        ' lblTimerInputInfo
+        ' 
+        lblTimerInputInfo.AutoSize = True
+        lblTimerInputInfo.ForeColor = Color.FromArgb(CByte(0), CByte(192), CByte(192))
+        lblTimerInputInfo.Location = New Point(229, 402)
+        lblTimerInputInfo.Name = "lblTimerInputInfo"
+        lblTimerInputInfo.Size = New Size(133, 30)
+        lblTimerInputInfo.TabIndex = 9
+        lblTimerInputInfo.Text = "Type the desired length " & vbCrLf & "of the game in minutes."
+        lblTimerInputInfo.TextAlign = ContentAlignment.MiddleCenter
+        ' 
         ' TitleScreen
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         ClientSize = New Size(800, 450)
+        Controls.Add(lblTimerInputInfo)
+        Controls.Add(txtTimeInput)
         Controls.Add(lblP2Info)
         Controls.Add(lblP1Info)
         Controls.Add(txtP2Name)
@@ -226,4 +251,6 @@ Partial Class TitleScreen
     Friend WithEvents ttPlrNames As ToolTip
     Friend WithEvents lblP1Info As Label
     Friend WithEvents lblP2Info As Label
+    Friend WithEvents txtTimeInput As TextBox
+    Friend WithEvents lblTimerInputInfo As Label
 End Class

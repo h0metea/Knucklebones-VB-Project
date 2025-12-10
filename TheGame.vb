@@ -11,6 +11,7 @@ Public Class TheGame
     Dim Dice As Integer
     Dim DiceImg As Integer
     Dim tspn As New TimeSpan()
+    Dim Turn As Integer
 
     Public Function Roll() ' dice rolling heck yea!!!
         Dice = Int((6 - 1 + 1) * Rnd() + 1)
@@ -28,15 +29,14 @@ Public Class TheGame
     End Sub
 
     Private Function IncrementTurn()
-        Dim Turn As Integer
         Turn += 1
         If Turn Mod 2 = 0 Then
             lblIndicator.Text = "Player 2
-roll the dice!"
+place your dice!"
             lblIndicator.ForeColor = Color.FromArgb(192, 0, 192)
         Else
             lblIndicator.Text = "Player 1
-roll the dice! " & Turn
+place your dice! " & Turn
             lblIndicator.ForeColor = Color.Red
         End If
 
@@ -73,7 +73,6 @@ roll the dice! " & Turn
 
         sender.Text = Dice
         sender.Enabled = False
-        IncrementTurn()
         DisableBoards()
     End Sub
 
@@ -86,13 +85,12 @@ roll the dice! " & Turn
 
         sender.Text = Dice
         sender.Enabled = False
-        IncrementTurn()
         DisableBoards()
     End Sub
 
     Public Sub TimerStart()
-        If IsNumeric(txtTimeInput.Text) AndAlso CInt(txtTimeInput.Text) > 0 Then
-            tspn = New TimeSpan(0, CInt(txtTimeInput.Text), 0)
+        If IsNumeric(TitleScreen.txtTimeInput.Text) AndAlso CInt(TitleScreen.txtTimeInput.Text) > 0 Then
+            tspn = New TimeSpan(0, CInt(TitleScreen.txtTimeInput.Text), 0)
             GameTimer.Enabled = True
             lblTime.Text = String.Format(" {0}:{1}", tspn.Minutes, tspn.Seconds) ' maybe it makes it start with its time instead of 1s cooldown
         Else
