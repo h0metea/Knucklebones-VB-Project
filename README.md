@@ -1,7 +1,5 @@
-# CoTL Knucklebones in Visual Basic
-> because i love that game <sup>(not the board game, the og game)</sup>
+# CoTL Knucklebones<sup>(simplified)</sup> in Visual Basic
 
-\
-self explanatory
-also adding dice [crashed my designer](https://files.catbox.moe/eanawk.png) lmfao\
-very wip
+A frankly simple board game of chance.
+
+> Made as a group with some classmates, we hope you enjoy it!
