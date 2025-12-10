@@ -2,7 +2,7 @@
 Imports System.Runtime.CompilerServices
 Imports Knucklebones_Port_Project.My.Resources
 
-' Notes: btw this whole thing is gonna either be 1. really inefficient or 2. be really shit (interchangeable)
+' Notes: btw this whole thing is gonna either be 1. really inefficient or 2. be really bad (interchangeable)
 ' If ... Is Nothing Then could be useful for checking open slots after first turn
 ' Val statement could be useful to retrieve values from the buttons fr
 ' Ctrl K + Ctrl U to uncomment ez
@@ -12,111 +12,126 @@ Public Class TheGame
     Dim DiceImg As Integer
     Dim tspn As New TimeSpan()
 
-    Public Function Roll() ' dice rolling fuck yea!!!
+    Public Function Roll() ' dice rolling heck yea!!!
         Dice = Int((6 - 1 + 1) * Rnd() + 1)
+        Return Dice
     End Function
 
-    Public Sub Board1Col1Calc()
-
-
-        ' array solution if needed
-        Dim TestArray(2) As Integer
-        TestArray(0) = btnP1_3.Text
-        TestArray(1) = btnP1_2.Text
-        TestArray(2) = btnP1_1.Text
-
-        For i As Integer = 0 To 2
-
-        Next
-
-
-        'Col1 = btnP1_1.Text
-        'Col2 = btnP1_2.Text
-        'Col3 = btnP1_3.Text
-
+    Private Sub UpdateDiceImage(value As Integer)
+        Dim rm As New System.Resources.ResourceManager("Knucklebones_Port_Project.TheDice", GetType(TheGame).Assembly)
+        Dim imgObj As Object = rm.GetObject($"Dice{value}")
+        If imgObj IsNot Nothing Then
+            pboxDice.Image = CType(imgObj, Drawing.Image)
+        Else
+            pboxDice.Image = Nothing
+        End If
     End Sub
 
-    Private Sub ButtonClicked(ByVal sender As System.Object,
+    Private Function IncrementTurn()
+        Dim Turn As Integer
+        Turn += 1
+        If Turn Mod 2 = 0 Then
+            lblIndicator.Text = "Player 2
+roll the dice!"
+            lblIndicator.ForeColor = Color.FromArgb(192, 0, 192)
+        Else
+            lblIndicator.Text = "Player 1
+roll the dice! " & Turn
+            lblIndicator.ForeColor = Color.Red
+        End If
+
+    End Function
+
+    Private Function DisableBoards()
+        For Each ctrl As Control In Me.Controls
+            If TypeOf ctrl Is Button Then
+                ctrl.Enabled = False
+            End If
+        Next
+        btnRollTheDice.Enabled = True
+    End Function
+
+    Private Function ReenableBoard() ' yeah this causes a memory leak but i cant care anymore
+        For Each ctrl As Control In Me.Controls
+            If TypeOf ctrl Is Button Then
+                ctrl.Enabled = True
+            End If
+        Next
+    End Function
+
+    Public Function PlayerNames()
+        lblPlayer1.Text = CStr(TitleScreen.txtP1Name.Text)
+        lblPlayer2.Text = CStr(TitleScreen.txtP2Name.Text)
+    End Function
+
+    Private Sub P1ButtonClicked(ByVal sender As System.Object,
                                ByVal e As System.EventArgs) Handles btnP1_1.Click,
                                btnP1_2.Click, btnP1_3.Click, btnP1_3.Click, btnP1_4.Click,
                                btnP1_5.Click, btnP1_6.Click, btnP1_7.Click, btnP1_8.Click,
                                btnP1_9.Click
 
-        Roll()
+
         sender.Text = Dice
         sender.Enabled = False
-
+        IncrementTurn()
+        DisableBoards()
     End Sub
 
-    Private Sub ResetBoardDisabler()
-        btnP1_1.Enabled = False
-        btnP1_2.Enabled = False
-        btnP1_4.Enabled = False
-        btnP1_5.Enabled = False
-        btnP1_7.Enabled = False
-        btnP1_8.Enabled = False
+    Private Sub P2ButtonClicked(ByVal sender As System.Object,
+                               ByVal e As System.EventArgs) Handles btnP2_1.Click,
+                               btnP2_2.Click, btnP2_3.Click, btnP2_3.Click, btnP2_4.Click,
+                               btnP2_5.Click, btnP2_6.Click, btnP2_7.Click, btnP2_8.Click,
+                               btnP2_9.Click
+
+
+        sender.Text = Dice
+        sender.Enabled = False
+        IncrementTurn()
+        DisableBoards()
     End Sub
 
-    ' future reset thingy when game ends, resets all buttons
-    Private Sub Reset()
-        For Each ctl In Controls
-            If TypeOf ctl Is Button Then
-                ctl.Text = ""
-                ctl.Enabled = True
-            End If
-        Next ctl
-        ResetBoardDisabler()
-        btnDbgStart.Text = "Start / Restart"
-    End Sub
-
-
-
-    ' ok below is where all the double clicking happens
-    Private Sub btnDbgStart_Click(sender As Object, e As EventArgs) Handles btnDbgStart.Click
-        ' move this to the starter form after its made
+    Public Sub TimerStart()
         If IsNumeric(txtTimeInput.Text) AndAlso CInt(txtTimeInput.Text) > 0 Then
             tspn = New TimeSpan(0, CInt(txtTimeInput.Text), 0)
             GameTimer.Enabled = True
+            lblTime.Text = String.Format(" {0}:{1}", tspn.Minutes, tspn.Seconds) ' maybe it makes it start with its time instead of 1s cooldown
         Else
             MsgBox("Invalid entry. Please enter a numeric value.")
         End If
-
     End Sub
 
+    ' ok below is where all the double clicking happens
+
     Private Sub GameTimer_Tick(sender As Object, e As EventArgs) Handles GameTimer.Tick
-        ' tsk tsk rewrite this so its not skidded lol
         tspn = tspn.Subtract(New TimeSpan(0, 0, 1))
 
         lblTime.Text = String.Format(" {0}:{1}", tspn.Minutes, tspn.Seconds)
         If tspn.Minutes = 0 AndAlso tspn.Seconds = 0 Then
             GameTimer.Stop()
             MsgBox("Game over!!! (Add player winning info when that stuff is done)")
+            ' Disable all button function then show an exit button?
         End If
     End Sub
 
     Private Sub btnRollTheDice_Click(sender As Object, e As EventArgs) Handles btnRollTheDice.Click
-        ' highkey disable this shit until the next players turn
-        Roll()
-        lblDiceNumber.Text = Dice
-        pboxDice.Image = My.Resources.DiceFaces.
+        ' highkey disable this until the next players turn
 
+        Roll()
+        lblDiceNumber.Text = Dice.ToString()
+        UpdateDiceImage(Dice)
+        lblIndicator.Text = ""
+        ReenableBoard()
+        IncrementTurn()
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' oops misclick, does this do smth when the form opens?
-        ' maybe could wrap this entire shit around it xDDD
-    End Sub
-
-    Private Sub pboxDice_Click(sender As Object, e As EventArgs) Handles pboxDice.Click
+        ' could be used to distinctly load turn 0
 
     End Sub
 
-    Private Sub btnDbgStop_Click(sender As Object, e As EventArgs)
 
-    End Sub
-
-    Private Sub dbgTestButton_Click(sender As Object, e As EventArgs) Handles dbgTestButton.Click
-        BoardCalc()
+    Private Sub dbgTestButton_Click(sender As Object, e As EventArgs)
+        ' BoardCalc()
     End Sub
 
 

@@ -4,10 +4,15 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net9.0-windows</TargetFramework>
     <RootNamespace>Knucklebones_Port_Project</RootNamespace>
-    <StartupObject>Sub Main</StartupObject>
+    <StartupObject>Knucklebones_Port_Project.My.MyApplication</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
+    <ApplicationIcon>crown.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="crown.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Import Include="System.Data" />
@@ -26,15 +31,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="DiceFaces.Designer.vb">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DiceFaces.resx</DependentUpon>
-    </Compile>
     <Compile Update="Logos.Designer.vb">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Logos.resx</DependentUpon>
+    </Compile>
+    <Compile Update="TheDice.Designer.vb">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TheDice.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -44,15 +49,15 @@
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="DiceFaces.resx">
-      <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>DiceFaces.Designer.vb</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Update="Logos.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Logos.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="TheDice.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TheDice.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 
