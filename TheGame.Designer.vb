@@ -38,9 +38,8 @@ Partial Class TheGame
         btnRollTheDice = New Button()
         lblInfoDice = New Label()
         pboxDice = New PictureBox()
-        pbarTime = New ProgressBar()
         ContextMenuStrip1 = New ContextMenuStrip(components)
-        lblDbgScore = New Label()
+        lblP1Score = New Label()
         lblPlayer1 = New Label()
         lblDiceNumber = New Label()
         lblTimerTxt = New Label()
@@ -55,6 +54,8 @@ Partial Class TheGame
         btnP2_8 = New Button()
         btnP2_9 = New Button()
         lblPlayer2 = New Label()
+        lblP2Score = New Label()
+        btnForfeit = New Button()
         CType(pboxDice, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -76,6 +77,7 @@ Partial Class TheGame
         ' btnP1_1
         ' 
         btnP1_1.FlatStyle = FlatStyle.Flat
+        btnP1_1.Font = New Font("Segoe UI", 14.25F)
         btnP1_1.ForeColor = Color.Maroon
         btnP1_1.Location = New Point(14, 241)
         btnP1_1.Name = "btnP1_1"
@@ -86,6 +88,7 @@ Partial Class TheGame
         ' btnP1_2
         ' 
         btnP1_2.FlatStyle = FlatStyle.Flat
+        btnP1_2.Font = New Font("Segoe UI", 14.25F)
         btnP1_2.ForeColor = Color.Maroon
         btnP1_2.Location = New Point(84, 241)
         btnP1_2.Name = "btnP1_2"
@@ -97,6 +100,7 @@ Partial Class TheGame
         ' 
         btnP1_3.BackgroundImageLayout = ImageLayout.Zoom
         btnP1_3.FlatStyle = FlatStyle.Flat
+        btnP1_3.Font = New Font("Segoe UI", 14.25F)
         btnP1_3.ForeColor = Color.Maroon
         btnP1_3.Location = New Point(154, 241)
         btnP1_3.Name = "btnP1_3"
@@ -107,6 +111,7 @@ Partial Class TheGame
         ' btnP1_6
         ' 
         btnP1_6.FlatStyle = FlatStyle.Flat
+        btnP1_6.Font = New Font("Segoe UI", 14.25F)
         btnP1_6.ForeColor = Color.Maroon
         btnP1_6.Location = New Point(154, 310)
         btnP1_6.Name = "btnP1_6"
@@ -117,6 +122,7 @@ Partial Class TheGame
         ' btnP1_5
         ' 
         btnP1_5.FlatStyle = FlatStyle.Flat
+        btnP1_5.Font = New Font("Segoe UI", 14.25F)
         btnP1_5.ForeColor = Color.Maroon
         btnP1_5.Location = New Point(84, 310)
         btnP1_5.Name = "btnP1_5"
@@ -127,6 +133,7 @@ Partial Class TheGame
         ' btnP1_4
         ' 
         btnP1_4.FlatStyle = FlatStyle.Flat
+        btnP1_4.Font = New Font("Segoe UI", 14.25F)
         btnP1_4.ForeColor = Color.Maroon
         btnP1_4.Location = New Point(14, 310)
         btnP1_4.Name = "btnP1_4"
@@ -137,6 +144,7 @@ Partial Class TheGame
         ' btnP1_7
         ' 
         btnP1_7.FlatStyle = FlatStyle.Flat
+        btnP1_7.Font = New Font("Segoe UI", 14.25F)
         btnP1_7.ForeColor = Color.Maroon
         btnP1_7.Location = New Point(14, 379)
         btnP1_7.Name = "btnP1_7"
@@ -147,6 +155,7 @@ Partial Class TheGame
         ' btnP1_8
         ' 
         btnP1_8.FlatStyle = FlatStyle.Flat
+        btnP1_8.Font = New Font("Segoe UI", 14.25F)
         btnP1_8.ForeColor = Color.Maroon
         btnP1_8.Location = New Point(84, 379)
         btnP1_8.Name = "btnP1_8"
@@ -157,6 +166,7 @@ Partial Class TheGame
         ' btnP1_9
         ' 
         btnP1_9.FlatStyle = FlatStyle.Flat
+        btnP1_9.Font = New Font("Segoe UI", 14.25F)
         btnP1_9.ForeColor = Color.Maroon
         btnP1_9.Location = New Point(154, 379)
         btnP1_9.Name = "btnP1_9"
@@ -170,7 +180,7 @@ Partial Class TheGame
         btnRollTheDice.FlatStyle = FlatStyle.Flat
         btnRollTheDice.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         btnRollTheDice.ForeColor = Color.DarkGray
-        btnRollTheDice.Location = New Point(338, 200)
+        btnRollTheDice.Location = New Point(338, 185)
         btnRollTheDice.Name = "btnRollTheDice"
         btnRollTheDice.Size = New Size(124, 50)
         btnRollTheDice.TabIndex = 4
@@ -181,7 +191,7 @@ Partial Class TheGame
         ' 
         lblInfoDice.AutoSize = True
         lblInfoDice.ForeColor = SystemColors.Control
-        lblInfoDice.Location = New Point(361, 62)
+        lblInfoDice.Location = New Point(361, 47)
         lblInfoDice.Name = "lblInfoDice"
         lblInfoDice.Size = New Size(78, 15)
         lblInfoDice.TabIndex = 5
@@ -190,58 +200,48 @@ Partial Class TheGame
         ' pboxDice
         ' 
         pboxDice.BackgroundImageLayout = ImageLayout.Zoom
-        pboxDice.Location = New Point(367, 125)
+        pboxDice.Location = New Point(367, 110)
         pboxDice.Name = "pboxDice"
         pboxDice.Size = New Size(67, 67)
         pboxDice.SizeMode = PictureBoxSizeMode.Zoom
         pboxDice.TabIndex = 11
         pboxDice.TabStop = False
         ' 
-        ' pbarTime
-        ' 
-        pbarTime.ForeColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
-        pbarTime.Location = New Point(288, 46)
-        pbarTime.Name = "pbarTime"
-        pbarTime.Size = New Size(225, 10)
-        pbarTime.TabIndex = 7
-        ' 
         ' ContextMenuStrip1
         ' 
         ContextMenuStrip1.Name = "ContextMenuStrip1"
         ContextMenuStrip1.Size = New Size(61, 4)
         ' 
-        ' lblDbgScore
+        ' lblP1Score
         ' 
-        lblDbgScore.AutoSize = True
-        lblDbgScore.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblDbgScore.ForeColor = SystemColors.Control
-        lblDbgScore.Location = New Point(143, 218)
-        lblDbgScore.Name = "lblDbgScore"
-        lblDbgScore.Size = New Size(79, 21)
-        lblDbgScore.TabIndex = 13
-        lblDbgScore.Text = "Score Test"
+        lblP1Score.Font = New Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblP1Score.ForeColor = Color.Red
+        lblP1Score.Location = New Point(130, 211)
+        lblP1Score.Name = "lblP1Score"
+        lblP1Score.Size = New Size(94, 30)
+        lblP1Score.TabIndex = 13
+        lblP1Score.Text = "0"
+        lblP1Score.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' lblPlayer1
         ' 
-        lblPlayer1.AutoSize = True
         lblPlayer1.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblPlayer1.ForeColor = Color.Red
         lblPlayer1.ImageAlign = ContentAlignment.MiddleLeft
         lblPlayer1.Location = New Point(12, 218)
         lblPlayer1.Name = "lblPlayer1"
-        lblPlayer1.Size = New Size(64, 21)
+        lblPlayer1.Size = New Size(112, 21)
         lblPlayer1.TabIndex = 14
         lblPlayer1.Text = "Player 1"
         lblPlayer1.TextAlign = ContentAlignment.MiddleLeft
         ' 
         ' lblDiceNumber
         ' 
-        lblDiceNumber.AutoSize = True
         lblDiceNumber.Font = New Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblDiceNumber.ForeColor = SystemColors.Control
-        lblDiceNumber.Location = New Point(384, 82)
+        lblDiceNumber.Location = New Point(375, 67)
         lblDiceNumber.Name = "lblDiceNumber"
-        lblDiceNumber.Size = New Size(0, 37)
+        lblDiceNumber.Size = New Size(50, 37)
         lblDiceNumber.TabIndex = 15
         lblDiceNumber.TextAlign = ContentAlignment.MiddleCenter
         ' 
@@ -257,12 +257,11 @@ Partial Class TheGame
         ' 
         ' lblIndicator
         ' 
-        lblIndicator.AutoSize = True
         lblIndicator.Font = New Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblIndicator.ForeColor = SystemColors.Control
-        lblIndicator.Location = New Point(332, 310)
+        lblIndicator.Location = New Point(294, 255)
         lblIndicator.Name = "lblIndicator"
-        lblIndicator.Size = New Size(136, 30)
+        lblIndicator.Size = New Size(213, 91)
         lblIndicator.TabIndex = 17
         lblIndicator.Text = "Roll the dice!"
         lblIndicator.TextAlign = ContentAlignment.MiddleCenter
@@ -270,6 +269,7 @@ Partial Class TheGame
         ' btnP2_1
         ' 
         btnP2_1.FlatStyle = FlatStyle.Flat
+        btnP2_1.Font = New Font("Segoe UI", 14.25F)
         btnP2_1.ForeColor = Color.Purple
         btnP2_1.Location = New Point(584, 241)
         btnP2_1.Name = "btnP2_1"
@@ -280,6 +280,7 @@ Partial Class TheGame
         ' btnP2_2
         ' 
         btnP2_2.FlatStyle = FlatStyle.Flat
+        btnP2_2.Font = New Font("Segoe UI", 14.25F)
         btnP2_2.ForeColor = Color.Purple
         btnP2_2.Location = New Point(654, 241)
         btnP2_2.Name = "btnP2_2"
@@ -290,6 +291,7 @@ Partial Class TheGame
         ' btnP2_3
         ' 
         btnP2_3.FlatStyle = FlatStyle.Flat
+        btnP2_3.Font = New Font("Segoe UI", 14.25F)
         btnP2_3.ForeColor = Color.Purple
         btnP2_3.Location = New Point(724, 241)
         btnP2_3.Name = "btnP2_3"
@@ -300,6 +302,7 @@ Partial Class TheGame
         ' btnP2_6
         ' 
         btnP2_6.FlatStyle = FlatStyle.Flat
+        btnP2_6.Font = New Font("Segoe UI", 14.25F)
         btnP2_6.ForeColor = Color.Purple
         btnP2_6.Location = New Point(724, 310)
         btnP2_6.Name = "btnP2_6"
@@ -310,6 +313,7 @@ Partial Class TheGame
         ' btnP2_5
         ' 
         btnP2_5.FlatStyle = FlatStyle.Flat
+        btnP2_5.Font = New Font("Segoe UI", 14.25F)
         btnP2_5.ForeColor = Color.Purple
         btnP2_5.Location = New Point(654, 310)
         btnP2_5.Name = "btnP2_5"
@@ -320,6 +324,7 @@ Partial Class TheGame
         ' btnP2_4
         ' 
         btnP2_4.FlatStyle = FlatStyle.Flat
+        btnP2_4.Font = New Font("Segoe UI", 14.25F)
         btnP2_4.ForeColor = Color.Purple
         btnP2_4.Location = New Point(584, 310)
         btnP2_4.Name = "btnP2_4"
@@ -330,6 +335,7 @@ Partial Class TheGame
         ' btnP2_7
         ' 
         btnP2_7.FlatStyle = FlatStyle.Flat
+        btnP2_7.Font = New Font("Segoe UI", 14.25F)
         btnP2_7.ForeColor = Color.Purple
         btnP2_7.Location = New Point(584, 379)
         btnP2_7.Name = "btnP2_7"
@@ -340,6 +346,7 @@ Partial Class TheGame
         ' btnP2_8
         ' 
         btnP2_8.FlatStyle = FlatStyle.Flat
+        btnP2_8.Font = New Font("Segoe UI", 14.25F)
         btnP2_8.ForeColor = Color.Purple
         btnP2_8.Location = New Point(654, 379)
         btnP2_8.Name = "btnP2_8"
@@ -350,6 +357,7 @@ Partial Class TheGame
         ' btnP2_9
         ' 
         btnP2_9.FlatStyle = FlatStyle.Flat
+        btnP2_9.Font = New Font("Segoe UI", 14.25F)
         btnP2_9.ForeColor = Color.Purple
         btnP2_9.Location = New Point(724, 379)
         btnP2_9.Name = "btnP2_9"
@@ -359,16 +367,38 @@ Partial Class TheGame
         ' 
         ' lblPlayer2
         ' 
-        lblPlayer2.AutoSize = True
         lblPlayer2.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblPlayer2.ForeColor = Color.FromArgb(CByte(192), CByte(0), CByte(192))
         lblPlayer2.ImageAlign = ContentAlignment.MiddleRight
-        lblPlayer2.Location = New Point(724, 218)
+        lblPlayer2.Location = New Point(677, 218)
         lblPlayer2.Name = "lblPlayer2"
-        lblPlayer2.Size = New Size(67, 21)
+        lblPlayer2.Size = New Size(114, 21)
         lblPlayer2.TabIndex = 14
         lblPlayer2.Text = "Player 2"
         lblPlayer2.TextAlign = ContentAlignment.MiddleRight
+        ' 
+        ' lblP2Score
+        ' 
+        lblP2Score.Font = New Font("Segoe UI", 12.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblP2Score.ForeColor = Color.FromArgb(CByte(192), CByte(0), CByte(192))
+        lblP2Score.Location = New Point(579, 211)
+        lblP2Score.Name = "lblP2Score"
+        lblP2Score.Size = New Size(92, 30)
+        lblP2Score.TabIndex = 13
+        lblP2Score.Text = "0"
+        lblP2Score.TextAlign = ContentAlignment.MiddleLeft
+        ' 
+        ' btnForfeit
+        ' 
+        btnForfeit.FlatStyle = FlatStyle.Flat
+        btnForfeit.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnForfeit.ForeColor = Color.Gray
+        btnForfeit.Location = New Point(316, 393)
+        btnForfeit.Name = "btnForfeit"
+        btnForfeit.Size = New Size(168, 49)
+        btnForfeit.TabIndex = 18
+        btnForfeit.Text = "Forfeit"
+        btnForfeit.UseVisualStyleBackColor = True
         ' 
         ' TheGame
         ' 
@@ -376,13 +406,14 @@ Partial Class TheGame
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         ClientSize = New Size(800, 450)
+        Controls.Add(btnForfeit)
         Controls.Add(lblIndicator)
         Controls.Add(lblTimerTxt)
         Controls.Add(lblDiceNumber)
         Controls.Add(lblPlayer2)
         Controls.Add(lblPlayer1)
-        Controls.Add(lblDbgScore)
-        Controls.Add(pbarTime)
+        Controls.Add(lblP2Score)
+        Controls.Add(lblP1Score)
         Controls.Add(pboxDice)
         Controls.Add(lblInfoDice)
         Controls.Add(btnRollTheDice)
@@ -429,9 +460,8 @@ Partial Class TheGame
     Friend WithEvents btnRollTheDice As Button
     Friend WithEvents lblInfoDice As Label
     Friend WithEvents pboxDice As PictureBox
-    Friend WithEvents pbarTime As ProgressBar
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
-    Friend WithEvents lblDbgScore As Label
+    Friend WithEvents lblP1Score As Label
     Friend WithEvents lblPlayer1 As Label
     Friend WithEvents lblDiceNumber As Label
     Friend WithEvents lblTimerTxt As Label
@@ -446,5 +476,7 @@ Partial Class TheGame
     Friend WithEvents btnP2_8 As Button
     Friend WithEvents btnP2_9 As Button
     Friend WithEvents lblPlayer2 As Label
+    Friend WithEvents lblP2Score As Label
+    Friend WithEvents btnForfeit As Button
 
 End Class

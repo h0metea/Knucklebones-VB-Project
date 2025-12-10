@@ -136,11 +136,11 @@ Partial Class TitleScreen
         lblEdition.AutoSize = True
         lblEdition.Font = New Font("Engravers MT", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblEdition.ForeColor = Color.Maroon
-        lblEdition.Location = New Point(702, 252)
+        lblEdition.Location = New Point(676, 258)
         lblEdition.Name = "lblEdition"
-        lblEdition.Size = New Size(76, 12)
+        lblEdition.Size = New Size(101, 24)
         lblEdition.TabIndex = 3
-        lblEdition.Text = "edition"
+        lblEdition.Text = "SIMPLIFIED" & vbCrLf & "EDITION"
         lblEdition.TextAlign = ContentAlignment.MiddleRight
         ' 
         ' txtP1Name
@@ -149,6 +149,7 @@ Partial Class TitleScreen
         txtP1Name.BorderStyle = BorderStyle.FixedSingle
         txtP1Name.ForeColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
         txtP1Name.Location = New Point(52, 376)
+        txtP1Name.MaxLength = 8
         txtP1Name.Name = "txtP1Name"
         txtP1Name.Size = New Size(100, 23)
         txtP1Name.TabIndex = 4
@@ -159,6 +160,7 @@ Partial Class TitleScreen
         txtP2Name.BorderStyle = BorderStyle.FixedSingle
         txtP2Name.ForeColor = Color.FromArgb(CByte(192), CByte(0), CByte(192))
         txtP2Name.Location = New Point(635, 377)
+        txtP2Name.MaxLength = 8
         txtP2Name.Name = "txtP2Name"
         txtP2Name.Size = New Size(100, 23)
         txtP2Name.TabIndex = 5
@@ -168,31 +170,32 @@ Partial Class TitleScreen
         lblP1Info.AutoSize = True
         lblP1Info.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         lblP1Info.ForeColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
-        lblP1Info.Location = New Point(56, 358)
+        lblP1Info.Location = New Point(45, 358)
         lblP1Info.Name = "lblP1Info"
-        lblP1Info.Size = New Size(92, 15)
+        lblP1Info.Size = New Size(113, 15)
         lblP1Info.TabIndex = 6
-        lblP1Info.Text = "Player 1's Name"
+        lblP1Info.Text = "Player 1's Nickname"
         ' 
         ' lblP2Info
         ' 
         lblP2Info.AutoSize = True
         lblP2Info.Font = New Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, CByte(0))
         lblP2Info.ForeColor = Color.FromArgb(CByte(192), CByte(0), CByte(192))
-        lblP2Info.Location = New Point(640, 359)
+        lblP2Info.Location = New Point(628, 358)
         lblP2Info.Name = "lblP2Info"
-        lblP2Info.Size = New Size(92, 15)
+        lblP2Info.Size = New Size(113, 15)
         lblP2Info.TabIndex = 7
-        lblP2Info.Text = "Player 2's Name"
+        lblP2Info.Text = "Player 2's Nickname"
         ' 
         ' txtTimeInput
         ' 
         txtTimeInput.BackColor = Color.FromArgb(CByte(20), CByte(20), CByte(20))
         txtTimeInput.BorderStyle = BorderStyle.FixedSingle
         txtTimeInput.ForeColor = SystemColors.Menu
-        txtTimeInput.Location = New Point(364, 408)
+        txtTimeInput.Location = New Point(364, 406)
+        txtTimeInput.MaxLength = 1
         txtTimeInput.Name = "txtTimeInput"
-        txtTimeInput.Size = New Size(33, 23)
+        txtTimeInput.Size = New Size(23, 23)
         txtTimeInput.TabIndex = 8
         ' 
         ' lblTimerInputInfo
