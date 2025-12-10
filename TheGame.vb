@@ -23,10 +23,10 @@ Public Class TheGame
     End Sub
 
     Private Sub UpdateDiceImage(value As Integer)
-        Dim rm As New System.Resources.ResourceManager("Knucklebones_Port_Project.TheDice", GetType(TheGame).Assembly)
+        Dim rm As New System.Resources.ResourceManager("Knucklebones_Port_Project.TheDice", GetType(TheGame).Assembly) ' because it was stubborn before about loading the resources...
         Dim imgObj As Object = rm.GetObject($"Dice{value}")
         If imgObj IsNot Nothing Then
-            pboxDice.Image = CType(imgObj, Drawing.Image)
+            pboxDice.Image = CType(imgObj, Drawing.Image) ' converts found value to img (<3 CType)
         Else
             pboxDice.Image = Nothing
         End If
@@ -57,7 +57,7 @@ place your dice!"
         lblIndicator.ForeColor = Color.White
     End Function
 
-    Private Function ReenableBoard() ' yeah this causes a memory leak but i cant care anymore
+    Private Function ReenableBoard()
         For Each ctrl As Control In Me.Controls
             If TypeOf ctrl Is Button Then
                 ctrl.Enabled = True
@@ -129,13 +129,13 @@ place your dice!"
         If IsNumeric(TitleScreen.txtTimeInput.Text) AndAlso CInt(TitleScreen.txtTimeInput.Text) > 0 Then
             tspn = New TimeSpan(0, CInt(TitleScreen.txtTimeInput.Text), 0)
             GameTimer.Enabled = True
-            lblTime.Text = String.Format(" {0}:{1:00}", tspn.Minutes, tspn.Seconds) ' maybe it makes it start with its time instead of 1s cooldown
+            lblTime.Text = String.Format(" {0}:{1:00}", tspn.Minutes, tspn.Seconds)
         Else
             MsgBox("Invalid entry. Please enter a numeric value.")
         End If
     End Sub
 
-    ' ok below is where all the double clicking happens
+    ' some double clicking happening below...
 
     Private Sub GameTimer_Tick(sender As Object, e As EventArgs) Handles GameTimer.Tick
         tspn = tspn.Subtract(New TimeSpan(0, 0, 1))
@@ -147,7 +147,6 @@ place your dice!"
     End Sub
 
     Private Sub btnRollTheDice_Click(sender As Object, e As EventArgs) Handles btnRollTheDice.Click
-        ' highkey disable this until the next players turn
 
         Roll()
         lblDiceNumber.Text = Dice.ToString()
@@ -161,7 +160,7 @@ place your dice!"
         Dim rowValues As New List(Of Integer)
 
         For Each btn As Button In rowButtons
-            If btn.Text <> "" AndAlso IsNumeric(btn.Text) Then
+            If btn.Text <> "" AndAlso IsNumeric(btn.Text) Then ' btw this operator checks strings for a diff value 
                 rowValues.Add(CInt(btn.Text))
             End If
         Next
@@ -185,7 +184,7 @@ place your dice!"
             Next
 
             If duplicateCount > 1 Then
-                score += currentValue ^ duplicateCount
+                score += currentValue ^ duplicateCount ' almost messed up by multiplying instead of exponentiating LOL
             Else
                 score += currentValue
             End If
@@ -203,7 +202,7 @@ place your dice!"
         For Each ctrl As Control In Me.Controls
             If TypeOf ctrl Is Button Then
                 Dim btn = CType(ctrl, Button)
-                If (playerNumber = 1 AndAlso btn.Name.StartsWith("btnP1_")) OrElse
+                If (playerNumber = 1 AndAlso btn.Name.StartsWith("btnP1_")) OrElse ' StartsWith is nice, i can't lie
                    (playerNumber = 2 AndAlso btn.Name.StartsWith("btnP2_")) Then
                     allButtons.Add(btn)
                 End If
@@ -250,8 +249,8 @@ place your dice!"
         Return False
     End Function
 
-    ' funniest way to close the entire app while hiding the main form.
-    Private Sub Form1_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
+    ' funniest way to make sure the entire app closes with the X button while hiding the main form
+    Private Sub DudeClose(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
         Application.Exit()
     End Sub
 End Class
