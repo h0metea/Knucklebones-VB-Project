@@ -2,16 +2,6 @@
 Imports System.Runtime.CompilerServices
 Imports Knucklebones_Port_Project.My.Resources
 
-' Notes: btw this whole thing is gonna either be 1. really inefficient or 2. be really bad (interchangeable)
-' If ... Is Nothing Then could be useful for checking open slots after first turn
-' Val statement could be useful to retrieve values from the buttons fr
-' Ctrl K + Ctrl U to uncomment ez
-
-''' <summary>
-'''  CHANGE LSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-'''  qdsqwdwd2d2d32322332423
-''' </summary>
-
 Public Class TheGame
     Dim Dice As Integer
     Dim DiceImg As Integer
